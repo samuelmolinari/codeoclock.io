@@ -1,0 +1,17 @@
+{
+  "name": "client",
+  "private": true,
+  "dependencies": {
+    "modernizr": "~2.8.1",
+    "angular": "~1.4",
+    "angular-new-router": "~0.5.3"
+  },
+  "overrides": {
+    "angular-new-router": {
+      "main": "dist/router.es5.js"
+    },
+    "angular": {
+      "main": "angular.js"
+    }
+  }
+}

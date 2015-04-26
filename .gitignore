@@ -1,0 +1,9 @@
+client/node_modules
+client/bower_components
+client/.tmp
+client/dist
+client/client.iml
+
+server/node_modules
+server/server.iml
+.idea
