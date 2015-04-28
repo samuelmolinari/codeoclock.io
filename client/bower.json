@@ -4,7 +4,8 @@
   "dependencies": {
     "modernizr": "~2.8.1",
     "angular": "~1.4",
-    "angular-new-router": "~0.5.3"
+    "angular-new-router": "~0.5.3",
+    "normalize.css": "~3.0.3"
   },
   "overrides": {
     "angular-new-router": {
@@ -12,6 +13,9 @@
     },
     "angular": {
       "main": "angular.js"
+    },
+    "normalize.css": {
+      "main": "normalize.css"
     }
   }
 }
