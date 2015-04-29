@@ -10,6 +10,7 @@
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="/bower_components/normalize.css/normalize.css" />
+    <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.css" />
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -26,13 +27,14 @@
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <header class="header">
+    <header class="header" ng-controller="HeaderController">
       <div class="container">
         <h1>Code'<strong>O</strong>'Clock</h1>
-        <ul class="menu">
+        <a class="btn-menu-toggle fa fa-navicon" ng-class="{ active: menu.active }" ng-click="toggle()"></a>
+        <ul class="menu" ng-class="{ active: menu.active }">
           <li><a href="/projects">Projects</a></li>
           <li><a href="/blog">Blog</a></li>
-          <li><a href="/contact">Contact</a></li>
+          <li><a href="/about">About</a></li>
         </ul>
       </div>
     </header>
@@ -69,5 +71,7 @@
     <!-- build:js scripts/main.js -->
     <script src="scripts/main.js"></script>
     <!-- endbuild -->
+
+    <script src="scripts/controllers/header.js"></script>
 </body>
 </html>

@@ -4,7 +4,8 @@ $icon-font-path: '../fonts/';
 // bower:scss
 // endbower
 
-@import 'variables/colours';
+@import 'variables/colour';
+@import 'variables/screen';
 
 html, body {
   font-family: 'Roboto', sans-serif;
@@ -17,6 +18,7 @@ body {
 
 .container {
   max-width: 1200px;
+  min-width: 360px;
   margin: 0 auto;
 }
 

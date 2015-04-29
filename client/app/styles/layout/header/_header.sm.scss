@@ -1,0 +1,46 @@
+@media (min-width: $screen-sm-min) {
+  header.header {
+    text-align: left;
+
+    .btn-menu-toggle {
+      display: none;
+    }
+
+    ul.menu {
+      display: inline-block;
+      overflow: visible;
+      background-color: transparent;
+      border-top: none;
+      width: auto;
+
+      &.active {
+        width: auto;
+        display: inline-block;
+      }
+
+      li {
+        float: none;
+        display: inline-block;
+        width: 150px;
+
+        &.active a {
+          border-bottom-color: $color-primary;
+          color: $color-primary;
+        }
+
+        &.active:hover a {
+          border-bottom-color: $color-primary;
+        }
+
+        &:hover a {
+          border-bottom-color: $color-header-border-highlight;
+          color: $color-primary;
+        }
+      }
+
+      a {
+        padding: 40px 0;
+      }
+    }
+  }
+};

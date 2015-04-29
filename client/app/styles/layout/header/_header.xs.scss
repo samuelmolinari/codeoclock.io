@@ -1,0 +1,91 @@
+header.header {
+  width: 100%;
+
+  position: fixed;
+  top: 0;
+
+  background-color: $color-header-background;
+  box-shadow: 0 2px 3px 1px rgba(0,0,0,0.10);
+
+  text-align: center;
+
+  .btn-menu-toggle {
+    display: inline-block;
+    height: 36px;
+    width: 36px;
+    border: 1px solid $color-header-button-inactive;
+    color: $color-header-button-inactive;
+    vertical-align: middle;
+    float: right;
+    margin: 20px 20px 0 0;
+    transition: border-color 300ms, color 300ms, background-color 300ms;
+    line-height: 36px;
+    text-decoration: none;
+    font-size: 1.5em;
+
+    &:hover {
+      border-color: $color-header-button-active;
+      color: $color-header-button-active;
+    }
+
+    &.active {
+      border-color: $color-header-button-active;
+      background-color: $color-header-button-active;
+      color: white;
+    }
+  }
+
+  h1 {
+    margin: 0;
+    font-weight: 300;
+    display: inline-block;
+    vertical-align: middle;
+    color: $color-primary;
+    padding: 20px;
+  }
+
+  ul.menu {
+    display: none;
+    overflow: hidden;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid #dfdfdf;
+    background-color: #f3f3f3;
+
+    &.active {
+      display: block;
+      width: 100%;
+    }
+
+    li {
+      width: 33.3333%;
+      float: left;
+
+      &.active a {
+        border-bottom-color: $color-primary;
+        color: $color-primary;
+      }
+
+      &.active:hover a {
+        border-bottom-color: $color-primary;
+      }
+
+      &:hover a {
+        border-bottom-color: $color-header-border-highlight;
+        color: $color-primary;
+      }
+    }
+
+    a {
+      display: block;
+      padding: 20px 0;
+      text-align: center;
+      color: inherit;
+      text-decoration: none;
+      border-top: 5px solid transparent;
+      border-bottom: 5px solid transparent;
+      transition: border-bottom 300ms, color 300ms;
+    }
+  }
+}

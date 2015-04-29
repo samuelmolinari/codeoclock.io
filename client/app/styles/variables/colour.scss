@@ -7,4 +7,6 @@ $color-primary: tomato;
 
 /** Header **/
 $color-header-background: white;
-$color-header-border-highlight: whitesmoke;
+$color-header-border-highlight: rgba(0,0,0,0.05);
+$color-header-button-inactive: #dddddd;
+$color-header-button-active: tomato;
