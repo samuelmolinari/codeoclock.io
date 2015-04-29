@@ -1,6 +1,13 @@
 'use strict';
 
-var AppController = function AppController ($router) {
+/**
+ * App's main controller
+ *
+ * @param {Object} $router Angular's new router
+ *
+ * @constructor
+ */
+var AppController = function AppController($router) {
   this.$router = $router;
 };
 
