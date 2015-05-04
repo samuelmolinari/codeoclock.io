@@ -15,5 +15,6 @@ angular.module('ccApp', ['ngNewRouter', 'ccApp.home'])
   .controller('AppController', ['$router', AppController]);
 
 AppController.$routeConfig = [
-  { path: '/', component: 'home' }
+  { path: '/', component: 'home' },
+  { path: '/projects', component: 'projects' }
 ];
