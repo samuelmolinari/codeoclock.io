@@ -11,7 +11,12 @@ var AppController = function AppController($router) {
   this.$router = $router;
 };
 
-angular.module('ccApp', ['ngNewRouter', 'ccApp.home'])
+angular.module('ccApp', ['ngNewRouter',
+                         'ccApp.config',
+                         'ccApp.home',
+                         'ccApp.projects',
+                         'ccApp.blog',
+                         'ccApp.about'])
   .controller('AppController', ['$router', AppController]);
 
 AppController.$routeConfig = [

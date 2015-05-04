@@ -5,6 +5,7 @@ var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
+var gulpNgConfig = require('gulp-ng-config');
 
 gulp.task('styles', function () {
   return gulp.src('app/styles/main.scss')
@@ -34,7 +35,7 @@ gulp.task('jshint', function () {
 gulp.task('html', ['styles'], function () {
   var assets = $.useref.assets({searchPath: ['.tmp', 'app', '.']});
 
-  return gulp.src('app/*.html')
+  return gulp.src('app/**/*.html')
     .pipe(assets)
     .pipe($.if('*.js', $.uglify()))
     .pipe($.if('*.css', $.csso()))
@@ -89,7 +90,7 @@ gulp.task('serve', ['styles', 'fonts'], function () {
 
   // watch for changes
   gulp.watch([
-    'app/*.html',
+    'app/**/*.html',
     'app/components/**/*.js',
     'app/scripts/**/*.js',
     'app/images/**/*',
@@ -119,7 +120,15 @@ gulp.task('wiredep', function () {
     .pipe(gulp.dest('app'));
 });
 
-gulp.task('build', ['jshint', 'html', 'images', 'fonts', 'extras'], function () {
+gulp.task('config', function () {
+  gulp.src('app/config/config.json')
+    .pipe(gulpNgConfig('ccApp.config', {
+      environment: process.env.APPLICATION_ENV || 'development'
+    }))
+    .pipe(gulp.dest('app/config'));
+});
+
+gulp.task('build', ['html', 'images', 'fonts', 'extras', 'config'], function () {
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 

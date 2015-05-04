@@ -7,9 +7,16 @@
  *
  * @constructor
  */
-var ProjectsController = function ProjectsController($rootScope) {
+var ProjectsController = function ProjectsController($rootScope, projectsRestService) {
   $rootScope.metaTitle = 'Projects';
+  this.list = [];
+
+  projectsRestService.get()
+    .success(function success() {
+    }.bind(this))
+    .error(function error() {
+    }.bind(this));
 };
 
 angular.module('ccApp.projects', [])
-  .controller('ProjectsController', ['$rootScope', ProjectsController]);
+  .controller('ProjectsController', ['$rootScope', 'ProjectsRestService', ProjectsController]);

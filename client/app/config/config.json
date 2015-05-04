@@ -1,0 +1,14 @@
+{
+  "development": {
+    "ENV": "development",
+    "API": {
+      "host": "//localhost:3000"
+    }
+  },
+  "production": {
+    "ENV": "production",
+    "API": {
+      "host": "//localhost:3000"
+    }
+  }
+}
