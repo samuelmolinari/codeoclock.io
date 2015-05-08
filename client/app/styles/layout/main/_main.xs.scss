@@ -1,0 +1,21 @@
+html, body {
+  font-family: 'Roboto', sans-serif;
+  color: $color-text;
+}
+
+body {
+  background-color: $color-background;
+}
+
+.container {
+  max-width: $max-width;
+  min-width: $min-width;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  padding: 0 $side-padding;
+}
+
+.main {
+  padding-top: $xs-header-height;
+}

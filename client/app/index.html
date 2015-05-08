@@ -15,7 +15,7 @@
     <!-- endbuild -->
 
     <!-- build:css styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/style.css">
     <!-- endbuild -->
 
     <!-- build:js scripts/vendor/modernizr.js -->
@@ -37,14 +37,14 @@
 
         <ul class="header__menu"
             ng-class="{ 'header__menu--inactive': !menu.active, 'header__menu--active': menu.active }">
-          <li class="header__link"><a href="/projects">Projects</a></li>
-          <li class="header__link"><a href="/blog">Blog</a></li>
-          <li class="header__link"><a href="/about">About</a></li>
+          <li class="header__link" ng-class="{ 'header__link--active': section === 'projects' }"><a href="/projects">Projects</a></li>
+          <li class="header__link" ng-class="{ 'header__link--active': section === 'blog' }"><a href="/blog">Blog</a></li>
+          <li class="header__link" ng-class="{ 'header__link--active': section === 'about' }"><a href="/about">About</a></li>
         </ul>
       </div>
     </header>
 
-    <main class="main container">
+    <main class="main">
       <div ng-viewport></div>
     </main>
 

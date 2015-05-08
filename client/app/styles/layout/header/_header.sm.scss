@@ -40,14 +40,16 @@
       float: none;
       display: inline-block;
       width: 150px;
+      background-color: $color-primary;
 
       a {
         border-bottom-color: $color-primary;
-        color: $color-primary;
+        color: white;
       }
 
       &:hover a {
         border-bottom-color: $color-primary;
+        color: white;
       }
     }
   }

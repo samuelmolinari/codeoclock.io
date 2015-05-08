@@ -1,0 +1,17 @@
+.about {
+  .about__container {
+    @extend .container;
+  }
+
+  .about__cover {
+    background-image: url('/images/about/cover.jpg');
+    background-size: cover;
+    background-position: center center;
+    position: absolute;
+    top: $xs-header-height;
+    left: 0;
+    width: 100%;
+    height: 50vh;
+    z-index: 0;
+  }
+}

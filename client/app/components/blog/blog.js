@@ -9,6 +9,7 @@
  */
 var BlogController = function BlogController($rootScope) {
   $rootScope.metaTitle = 'Blog';
+  $rootScope.section = 'blog';
 };
 
 angular.module('ccApp.blog', [])

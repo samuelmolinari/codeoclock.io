@@ -1,6 +1,7 @@
 .header {
   width: 100%;
   position: fixed;
+  z-index: 1000;
   top: 0;
   background-color: $color-header-background;
   box-shadow: 0 2px 3px 1px rgba(0,0,0,0.10);
@@ -8,6 +9,7 @@
 
   .header__container {
     @extend .container;
+    padding: 0;
   }
 
   /* Header Title */
@@ -17,7 +19,7 @@
     display: inline-block;
     vertical-align: middle;
     color: $color-primary;
-    padding: 20px;
+    padding: $side-padding;
   }
 
   /* Header Menu Toggle Button */

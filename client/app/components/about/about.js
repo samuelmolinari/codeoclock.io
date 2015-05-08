@@ -9,6 +9,7 @@
  */
 var AboutController = function AboutController($rootScope) {
   $rootScope.metaTitle = 'About';
+  $rootScope.section = 'about';
 };
 
 angular.module('ccApp.about', [])

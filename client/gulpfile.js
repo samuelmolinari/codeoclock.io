@@ -8,7 +8,7 @@ var reload = browserSync.reload;
 var gulpNgConfig = require('gulp-ng-config');
 
 gulp.task('styles', function () {
-  return gulp.src('app/styles/main.scss')
+  return gulp.src('app/styles/style.scss')
     .pipe($.sourcemaps.init())
     .pipe($.sass({
       outputStyle: 'nested', // libsass doesn't support expanded yet

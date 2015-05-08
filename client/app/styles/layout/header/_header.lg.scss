@@ -1,2 +1,7 @@
 @media (min-width: $screen-lg-min) {
+  .header {
+    .header__title {
+      padding-left: 0;
+    }
+  }
 }

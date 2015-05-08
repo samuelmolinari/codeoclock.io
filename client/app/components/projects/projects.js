@@ -9,6 +9,7 @@
  */
 var ProjectsController = function ProjectsController($rootScope, projectsRestService) {
   $rootScope.metaTitle = 'Projects';
+  $rootScope.section = 'projects';
   this.list = [];
 
   projectsRestService.get()
