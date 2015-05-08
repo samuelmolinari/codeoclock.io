@@ -28,13 +28,18 @@
     <![endif]-->
 
     <header class="header" ng-controller="HeaderController">
-      <div class="container">
-        <h1>Code'<strong>O</strong>'Clock</h1>
-        <a class="btn-menu-toggle fa fa-navicon" ng-class="{ active: menu.active }" ng-click="toggle()"></a>
-        <ul class="menu" ng-class="{ active: menu.active }">
-          <li><a href="/projects">Projects</a></li>
-          <li><a href="/blog">Blog</a></li>
-          <li><a href="/about">About</a></li>
+      <div class="header__container">
+        <h1 class="header__title">Code'<strong>O</strong>'Clock</h1>
+
+        <a class="header__btn-toggle-menu fa fa-navicon"
+           ng-class="{ 'header__btn-toggle-menu--active': menu.active, 'header__btn-toggle-menu--inactive': !menu.active }"
+           ng-click="toggle()"></a>
+
+        <ul class="header__menu"
+            ng-class="{ 'header__menu--inactive': !menu.active, 'header__menu--active': menu.active }">
+          <li class="header__link"><a href="/projects">Projects</a></li>
+          <li class="header__link"><a href="/blog">Blog</a></li>
+          <li class="header__link"><a href="/about">About</a></li>
         </ul>
       </div>
     </header>

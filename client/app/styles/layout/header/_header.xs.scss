@@ -1,16 +1,29 @@
-header.header {
+.header {
   width: 100%;
-
   position: fixed;
   top: 0;
-
   background-color: $color-header-background;
   box-shadow: 0 2px 3px 1px rgba(0,0,0,0.10);
-
   text-align: center;
 
-  .btn-menu-toggle {
+  .header__container {
+    @extend .container;
+  }
+
+  /* Header Title */
+  .header__title {
+    margin: 0;
+    font-weight: 300;
     display: inline-block;
+    vertical-align: middle;
+    color: $color-primary;
+    padding: 20px;
+  }
+
+  /* Header Menu Toggle Button */
+  .header__btn-toggle-menu {
+    display: inline-block;
+    text-align: center;
     height: 36px;
     width: 36px;
     border: 1px solid $color-header-button-inactive;
@@ -22,60 +35,46 @@ header.header {
     line-height: 36px;
     text-decoration: none;
     font-size: 1.5em;
+  }
 
+  .header__btn-toggle-menu--inactive {
     &:hover {
       border-color: $color-header-button-active;
       color: $color-header-button-active;
     }
-
-    &.active {
-      border-color: $color-header-button-active;
-      background-color: $color-header-button-active;
-      color: white;
-    }
   }
 
-  h1 {
-    margin: 0;
-    font-weight: 300;
-    display: inline-block;
-    vertical-align: middle;
-    color: $color-primary;
-    padding: 20px;
+  .header__btn-toggle-menu--active {
+    border-color: $color-header-button-active;
+    background-color: $color-header-button-active;
+    color: white;
   }
 
-  ul.menu {
-    display: none;
+  /* Header Menu */
+  .header__menu {
     overflow: hidden;
     list-style: none;
     margin: 0;
     padding: 0;
     border-top: 1px solid #dfdfdf;
     background-color: #f3f3f3;
+    width: 100%;
+  }
 
-    &.active {
-      display: block;
-      width: 100%;
-    }
+  .header__menu--active {
+    @extend .header__menu;
+    display: block;
+  }
 
-    li {
-      width: 33.3333%;
-      float: left;
+  .header__menu--inactive {
+    @extend .header__menu;
+    display: none;
+  }
 
-      &.active a {
-        border-bottom-color: $color-primary;
-        color: $color-primary;
-      }
-
-      &.active:hover a {
-        border-bottom-color: $color-primary;
-      }
-
-      &:hover a {
-        border-bottom-color: $color-header-border-highlight;
-        color: $color-primary;
-      }
-    }
+  /* Header Link */
+  .header__link {
+    width: 33.3333%;
+    float: left;
 
     a {
       display: block;
@@ -86,6 +85,20 @@ header.header {
       border-top: 5px solid transparent;
       border-bottom: 5px solid transparent;
       transition: border-bottom 300ms, color 300ms;
+    }
+
+    &:hover a {
+      border-bottom-color: $color-header-border-highlight;
+      color: $color-primary;
+    }
+  }
+
+  .header__link--active a {
+    border-bottom-color: $color-primary;
+    color: $color-primary;
+
+    &:hover {
+      border-bottom-color: $color-primary;
     }
   }
 }
