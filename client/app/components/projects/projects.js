@@ -13,7 +13,8 @@ var ProjectsController = function ProjectsController($rootScope, projectsRestSer
   this.list = [];
 
   projectsRestService.get()
-    .success(function success() {
+    .success(function success(response) {
+      this.list = response.payload;
     }.bind(this))
     .error(function error() {
     }.bind(this));

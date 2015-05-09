@@ -1,9 +1,11 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET users listing. */
+/* GET projects listing. */
 router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+  res.send({ payload: [
+    { id: 1, name: 'Hello World', images: [], cover: '' }
+  ]});
 });
 
 module.exports = router;
