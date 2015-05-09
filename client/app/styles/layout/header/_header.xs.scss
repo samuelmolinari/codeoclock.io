@@ -7,6 +7,11 @@
   box-shadow: 0 2px 3px 1px rgba(0,0,0,0.10);
   text-align: center;
 
+  a:hover {
+    background-color: transparent;
+    color: white;
+  }
+
   .header__container {
     @extend .container;
     padding: 0;
@@ -50,6 +55,11 @@
     border-color: $color-header-button-active;
     background-color: $color-header-button-active;
     color: white;
+
+    &:hover {
+      background-color: $color-header-button-active;
+      color: white;
+    }
   }
 
   /* Header Menu */

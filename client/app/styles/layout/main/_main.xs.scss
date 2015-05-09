@@ -1,10 +1,35 @@
 html, body {
   font-family: 'Roboto', sans-serif;
   color: $color-text;
+  height: 100%;
 }
 
 body {
   background-color: $color-background;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: $color-primary;
+  color: white;
+}
+
+::-moz-selection {
+  background: $color-primary;
+  color: white;
+}
+
+a {
+  color: $color-primary;
+}
+
+a:hover {
+  background-color: $color-primary;
+  color: white;
+  text-decoration: none;
 }
 
 .container {
@@ -18,4 +43,5 @@ body {
 
 .main {
   padding-top: $xs-header-height;
+  height: 100%;
 }
