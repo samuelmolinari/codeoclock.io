@@ -3,17 +3,17 @@ var express = require('express'),
     logger = require('morgan'),
     mongoose = require('mongoose'),
     fs = require('fs'),
+    config = require('./config/config'),
     app = express();
 
-fs.readdirSync('./models').forEach(function (file) {
+fs.readdirSync('./app/models').forEach(function (file) {
   if(file.match(/\.js$/)) {
-    require('./models/' + file);
+    require('./app/models/' + file);
   }
 });
 
 var connect = function () {
-    var options = { server: { socketOptions: { keepAlive: 1 } } };
-      mongoose.connect('mongodb://localhost/codeoclock', options);
+  mongoose.connect(config.mongodb.uri, config.mongodb.options);
 };
 connect();
 

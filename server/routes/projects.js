@@ -1,6 +1,6 @@
-var express = require('express');
-var router = express.Router();
-var projectsController = require('../controllers/projects');
+var express = require('express'),
+    router = express.Router(),
+    projectsController = require('../app/controllers/projects');
 
 /**
  * Get list of projects
@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
 
   promise.then(function onFulfill(projects) {
     res.send({
-      payload: projects
+      data: projects
     });
   }).then(null, next);
 });
@@ -27,9 +27,19 @@ router.get('/:id', function(req, res, next) {
     });
 
   promise.then(function onFulfill(project) {
-    res.send({
-      payload: project
-    });
+    if(project) {
+      res.send({
+        data: project
+      });
+    } else {
+      var message = 'Project not found';
+      res.status(404).send({
+        error: {
+          message: message
+        },
+        message : message
+      });
+    }
   }).then(null, next);
 });
 
@@ -44,7 +54,7 @@ router.put('/:id', function(req, res, next) {
 
   promise.then(function onFulfill(project) {
     res.send({
-      payload: project
+      data: project
     });
   }).then(null, next);
 });
@@ -57,7 +67,7 @@ router.post('/', function(req, res, next) {
 
   promise.then(function onFulfill(project) {
     res.send({
-      payload: project
+      data: project
     });
   }).then(null, next);
 });
@@ -70,10 +80,20 @@ router.delete('/:id', function(req, res, next) {
       id: req.params.id,
     });
 
-  promise.then(function onFulfill(project) {
-    res.send({
-      payload: project
-    });
+  promise.then(function onFulfill(outcome) {
+    if(outcome.result && outcome.result.n > 0) {
+      res.send({
+        data: outcome
+      });
+    } else {
+      var message = 'Project not found';
+      res.status(404).send({
+        error: {
+          message: message
+        },
+        message : message
+      });
+    }
   }).then(null, next);
 });
 

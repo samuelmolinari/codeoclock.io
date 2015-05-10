@@ -18,7 +18,7 @@ var AdminProjectsEditController = function AdminProjectsEditController($router, 
   if(id) {
     this.projectsRestService.get({ id: id })
       .success(function success(response) {
-        this.project = response.payload;
+        this.project = response.data;
       }.bind(this))
       .error(function error() {});
   }
@@ -27,7 +27,7 @@ var AdminProjectsEditController = function AdminProjectsEditController($router, 
 AdminProjectsEditController.prototype.create = function create() {
   this.projectsRestService.create(this.project)
     .success(function success(response) {
-      this.$location.path(this.$router.generate('adminProjectsEdit', { id: response.payload._id }));
+      this.$location.path(this.$router.generate('adminProjectsEdit', { id: response.data._id }));
     }.bind(this))
     .error(function error() {
     }.bind(this));

@@ -3,7 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "APPLICATION_ENV=development ./node_modules/.bin/nodemon --debug ./bin/www",
+    "debug": "APPLICATION_ENV=development node-debug _mocha ./test/*.js ./test/**/*.js",
+    "test": "make test",
+    "watch": "make test-w"
   },
   "dependencies": {
     "body-parser": "~1.12.0",
@@ -11,5 +14,12 @@
     "express": "~4.12.0",
     "mongoose": "^4.0.2",
     "morgan": "~1.5.1"
+  },
+  "devDependencies": {
+    "chai": "^2.3.0",
+    "mocha": "^2.2.4",
+    "monky": "^0.6.6",
+    "nodemon": "^1.3.7",
+    "supertest": "^0.15.0"
   }
 }
