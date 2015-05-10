@@ -1,6 +1,7 @@
 @media (min-width: $screen-sm-min) {
   .header {
     text-align: left;
+    position: fixed;
 
     /* Header Menu Toggle Button */
     .header__btn-toggle-menu {

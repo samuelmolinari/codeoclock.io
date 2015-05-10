@@ -1,0 +1,38 @@
+.button {
+  display: inline-block;
+  text-decoration: none;
+  line-height: 40px;
+  font-weight: normal;
+  font-size: $font-size;
+  height: 45px;
+  padding: 0 20px;
+  background-color: white;
+  border: 3px solid $color-primary;
+  transition: background-color 300ms;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.button--primary {
+  @extend .button;
+  background-color: $color-primary;
+  border-color: transparent;
+  color: white;
+
+  &:hover {
+    background-color: $color-primary--dark;
+  }
+}
+
+.button--danger {
+  @extend .button;
+  background-color: $color-danger;
+  border-color: transparent;
+  color: white;
+
+  &:hover {
+    background-color: $color-danger--dark;
+  }
+}

@@ -8,7 +8,11 @@ $icon-font-path: '../fonts/';
 @import 'variables/screens';
 @import 'variables/dimensions';
 
-
 @import 'layout/main';
 @import 'layout/header';
+@import 'layout/table';
+
 @import 'sections/about';
+
+@import 'components/form';
+@import 'components/buttons';

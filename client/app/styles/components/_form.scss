@@ -1,0 +1,27 @@
+@import 'form/inputs/text';
+@import 'form/inputs/textarea';
+@import 'form/inputs/checkbox';
+
+.form__fieldset {
+  margin-bottom: 20px;
+  padding: 0;
+  border: none;
+}
+
+.form__group {
+  margin-bottom: 20px;
+}
+
+.form__group--right {
+  @extend .form__group;
+  text-align: right;
+}
+
+.form__label {
+  display: inline-block;
+}
+
+.form__submit {
+  @extend .button--primary;
+  text-transform: capitalize;
+}

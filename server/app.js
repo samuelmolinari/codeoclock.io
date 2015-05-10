@@ -1,8 +1,24 @@
 var express = require('express'),
     bodyParser = require('body-parser'),
     logger = require('morgan'),
-    projects = require('./routes/projects.js'),
+    mongoose = require('mongoose'),
+    fs = require('fs'),
     app = express();
+
+fs.readdirSync('./models').forEach(function (file) {
+  if(file.match(/\.js$/)) {
+    require('./models/' + file);
+  }
+});
+
+var connect = function () {
+    var options = { server: { socketOptions: { keepAlive: 1 } } };
+      mongoose.connect('mongodb://localhost/codeoclock', options);
+};
+connect();
+
+mongoose.connection.on('error', console.log);
+mongoose.connection.on('disconnected', connect);
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -10,12 +26,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(function (req, res, next) {
   res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', '*');
-  res.setHeader('Access-Control-Allow-Headers', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, HEAD, OPTIONS, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   next();
 });
 
-app.use('/projects', projects);
+app.use('/projects', require('./routes/projects'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -32,7 +48,7 @@ app.use(function(req, res, next) {
 if (app.get('env') === 'development') {
   app.use(function(err, req, res, next) {
     res.status(err.status || 500);
-    res.render('error', {
+    res.send({
       message: err.message,
       error: err
     });
@@ -43,7 +59,7 @@ if (app.get('env') === 'development') {
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
   res.status(err.status || 500);
-  res.render('error', {
+  res.send({
     message: err.message,
     error: {}
   });

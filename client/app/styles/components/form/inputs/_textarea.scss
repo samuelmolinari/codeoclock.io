@@ -1,0 +1,5 @@
+.form__textarea {
+  @extend .form__text;
+  height: 15em;
+  padding: 10px;
+}

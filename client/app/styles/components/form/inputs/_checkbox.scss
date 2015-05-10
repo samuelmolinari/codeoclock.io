@@ -1,0 +1,34 @@
+.form__checkbox {
+  -webkit-appearance: none;
+  background-color: white;
+  border: 3px solid #dfdfdf;
+  display: inline-block;
+  position: relative;
+  width: 35px;
+  height: 35px;
+  vertical-align: middle;
+  margin-right: 10px;
+  transition: background-color 300ms, border-color 300ms;
+
+  &:checked {
+    border-color: transparent;
+    background-color: $color-primary;
+
+    &:after {
+      font-family: FontAwesome;
+      content: '\f00c';
+      font-size: 20px;
+      line-height: 30px;
+      width: 100%;
+      text-align: center;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      color: white;
+    }
+  }
+
+  &:focus {
+    outline: none;
+  }
+}

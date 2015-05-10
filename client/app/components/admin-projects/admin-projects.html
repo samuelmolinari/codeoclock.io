@@ -1,0 +1,16 @@
+<div class="container">
+  <h1>Projects <a ng-link="adminProjectsCreate()" class="button--primary float-right">Create</a></h1>
+
+  <table class="table">
+    <tr>
+      <th class="table__th"></th>
+      <th class="table__th">Name</th>
+      <th class="table__th"></th>
+    </tr>
+    <tr class="table__tr" ng-repeat="project in adminProjects.list track by project._id">
+      <td class="table__td--checkbox"><input type="checkbox" class="form__checkbox" disabled ng-model="project.live"></td>
+      <td class="table__td--dominant"><a ng-link="adminProjectsEdit({ id: project._id })" ng-bind="::project.name"></a></td>
+      <td class="table__td--right"><button ng-click="adminProjects.remove(project._id)" class="button--danger fa fa-remove"></button></td>
+    </tr>
+  </table>
+</div>

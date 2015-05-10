@@ -4,6 +4,10 @@ $color-text: #555555;
 
 /** Colour Palette **/
 $color-primary: tomato;
+$color-primary--dark: darken($color-primary, 10%);
+
+$color-danger: #B83434;
+$color-danger--dark: darken($color-danger, 10%);
 
 /** Header **/
 $color-header-background: white;
