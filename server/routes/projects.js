@@ -52,10 +52,20 @@ router.put('/:id', function(req, res, next) {
     data: req.body
   });
 
-  promise.then(function onFulfill(project) {
-    res.send({
-      data: project
-    });
+  promise.then(function onFulfill(feedback) {
+    if(feedback && feedback.n > 0) {
+      res.send({
+        data: feedback
+      });
+    } else {
+      var message = 'Project not found';
+      res.status(404).send({
+        error: {
+          message: message
+        },
+        message : message
+      });
+    }
   }).then(null, next);
 });
 
@@ -66,6 +76,7 @@ router.post('/', function(req, res, next) {
   var promise = projectsController.create(req.body);
 
   promise.then(function onFulfill(project) {
+    res.status(201);
     res.send({
       data: project
     });
@@ -80,10 +91,10 @@ router.delete('/:id', function(req, res, next) {
       id: req.params.id,
     });
 
-  promise.then(function onFulfill(outcome) {
-    if(outcome.result && outcome.result.n > 0) {
+  promise.then(function onFulfill(feedback) {
+    if(feedback.result && feedback.result.n > 0) {
       res.send({
-        data: outcome
+        data: feedback
       });
     } else {
       var message = 'Project not found';
