@@ -55,7 +55,7 @@ describe('Projects Controller', function() {
       it('updates the given project', function(done) {
         request(app)
           .put('/projects/' + project._id)
-          .send({ decription: 'Hello World' })
+          .send({ description: 'Hello World' })
           .expect(200)
           .end(function(err, res) {
             Project.findById(project.id.toString()).exec()
