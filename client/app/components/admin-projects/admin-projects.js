@@ -20,7 +20,7 @@ var AdminProjectsController = function AdminProjectsController(projectsRestServi
 
 AdminProjectsController.prototype.remove = function remove(id) {
   this.projectsRestService.remove({ id: id })
-    .success(function success(response) {
+    .success(function success() {
       for(var projectIndex in this.list) {
         var project = this.list[projectIndex];
         if(project._id === id) {

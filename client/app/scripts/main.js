@@ -20,7 +20,8 @@ angular.module('ccApp', ['ngNewRouter',
                          'ccAdmin.home',
                          'ccAdmin.projects',
                          'ccAdmin.projects.edit',
-                         'ccAdmin.articles'])
+                         'ccAdmin.articles',
+                         'ccAdmin.articles.edit'])
   .controller('AppController', ['$router', AppController]);
 
 AppController.$routeConfig = [

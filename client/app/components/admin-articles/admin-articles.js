@@ -20,7 +20,7 @@ var AdminArticlesController = function AdminArticlesController(articlesRestServi
 
 AdminArticlesController.prototype.remove = function remove(id) {
   this.articlesRestService.remove({ id: id })
-    .success(function success(response) {
+    .success(function success() {
       for(var projectIndex in this.list) {
         var project = this.list[projectIndex];
         if(project._id === id) {
