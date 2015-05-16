@@ -12,6 +12,7 @@
       <textarea class="form__textarea" name="articleContent"
                 id="articleContent" placeholder="Article Content"
                 ng-model="adminArticlesEdit.article.content"></textarea>
+
     </div>
 
     <div class="form__group">
@@ -31,4 +32,6 @@
       <input type="submit" class="form__submit" ng-value="adminArticlesEdit.submitActionName">
     </div>
   </form>
+
+  <article class="article--preview" article-content content="adminArticlesEdit.article.content"></article>
 </div>

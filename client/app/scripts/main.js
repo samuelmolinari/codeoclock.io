@@ -12,6 +12,7 @@ var AppController = function AppController($router) {
 };
 
 angular.module('ccApp', ['ngNewRouter',
+                         'ngSanitize',
                          'ccApp.config',
                          'ccApp.home',
                          'ccApp.projects',
