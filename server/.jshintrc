@@ -1,5 +1,4 @@
 {
-  "browser": true,
   "node": true,
   "esnext": true,
   "bitwise": true,
@@ -15,8 +14,14 @@
   "undef": true,
   "unused": true,
   "strict": true,
-  "jquery": true,
-  "predef": [
-    "angular"
-  ]
+  "globals": {
+    "describe"   : false,
+    "context"    : false,
+    "expect"     : false,
+    "it"         : false,
+    "before"     : false,
+    "beforeEach" : false,
+    "after"      : false,
+    "afterEach"  : false
+  }
 }

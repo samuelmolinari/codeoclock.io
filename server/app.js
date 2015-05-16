@@ -1,3 +1,5 @@
+'use strict';
+
 var express = require('express'),
     bodyParser = require('body-parser'),
     logger = require('morgan'),
@@ -15,6 +17,7 @@ fs.readdirSync('./app/models').forEach(function (file) {
 var connect = function () {
   mongoose.connect(config.mongodb.uri, config.mongodb.options);
 };
+
 connect();
 
 mongoose.connection.on('error', console.log);
@@ -32,6 +35,7 @@ app.use(function (req, res, next) {
 });
 
 app.use('/projects', require('./routes/projects'));
+app.use('/articles', require('./routes/articles'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -40,13 +44,12 @@ app.use(function(req, res, next) {
   next(err);
 });
 
-
 // error handlers
 
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
-  app.use(function(err, req, res, next) {
+  app.use(function(err, req, res) {
     res.status(err.status || 500);
     res.send({
       message: err.message,
@@ -57,13 +60,12 @@ if (app.get('env') === 'development') {
 
 // production error handler
 // no stacktraces leaked to user
-app.use(function(err, req, res, next) {
+app.use(function(err, req, res) {
   res.status(err.status || 500);
   res.send({
     message: err.message,
     error: {}
   });
 });
-
 
 module.exports = app;

@@ -1,9 +1,10 @@
+'use strict';
+
 global.expect = require('chai').expect;
 global.monky  = {};
 global.app    = require('../app');
 
 var mongoose = require('mongoose'),
-    config   = require('../config/config'),
     fs = require('fs');
 
 fs.readdirSync('./test/factories').forEach(function (file) {

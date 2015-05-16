@@ -1,5 +1,7 @@
+'use strict';
+
 var mongoose = require('mongoose'),
-    Project = mongoose.model('Project')
+    Project = mongoose.model('Project');
 
 /**
  * Projects Controller
@@ -57,8 +59,7 @@ ProjectsController.prototype.update = function update(args) {
   delete args.data._id;
   delete args.data._v;
   delete args.createdAt;
-
-  args.data.updatedAt = new Date();
+  delete args.updatedAt;
 
   return Project.update({ _id: args.id }, { $set: args.data }).exec();
 };

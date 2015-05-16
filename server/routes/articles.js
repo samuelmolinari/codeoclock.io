@@ -2,39 +2,39 @@
 
 var express = require('express'),
     router = express.Router(),
-    projectsController = require('../app/controllers/projects');
+    articlesController = require('../app/controllers/articles');
 
 /**
- * Get list of projects
+ * Get list of articles
  */
 router.get('/', function(req, res, next) {
-  var promise = projectsController.getAll({
+  var promise = articlesController.getAll({
       offset: req.query.offset,
       limit: req.query.limit
     });
 
-  promise.then(function onFulfill(projects) {
+  promise.then(function onFulfill(articles) {
     res.send({
-      data: projects
+      data: articles
     });
   }).then(null, next);
 });
 
 /**
- * Get a project
+ * Get aarticle
  */
 router.get('/:id', function(req, res, next) {
-  var promise = projectsController.get({
+  var promise = articlesController.get({
       id: req.params.id,
     });
 
-  promise.then(function onFulfill(project) {
-    if(project) {
+  promise.then(function onFulfill(article) {
+    if(article) {
       res.send({
-        data: project
+        data:article
       });
     } else {
-      var message = 'Project not found';
+      var message = 'Article not found';
       res.status(404).send({
         error: {
           message: message
@@ -46,10 +46,10 @@ router.get('/:id', function(req, res, next) {
 });
 
 /**
- * Update a project
+ * Update aarticle
  */
 router.put('/:id', function(req, res, next) {
-  var promise = projectsController.update({
+  var promise = articlesController.update({
     id: req.params.id,
     data: req.body
   });
@@ -60,7 +60,7 @@ router.put('/:id', function(req, res, next) {
         data: feedback
       });
     } else {
-      var message = 'Project not found';
+      var message = 'Article not found';
       res.status(404).send({
         error: {
           message: message
@@ -72,24 +72,24 @@ router.put('/:id', function(req, res, next) {
 });
 
 /**
- * Create a project
+ * Create aarticle
  */
 router.post('/', function(req, res, next) {
-  var promise = projectsController.create(req.body);
+  var promise = articlesController.create(req.body);
 
-  promise.then(function onFulfill(project) {
+  promise.then(function onFulfill(article) {
     res.status(201);
     res.send({
-      data: project
+      data:article
     });
   }).then(null, next);
 });
 
 /**
- * Remove a project
+ * Remove a article
  */
 router.delete('/:id', function(req, res, next) {
-  var promise = projectsController.remove({
+  var promise = articlesController.remove({
       id: req.params.id,
     });
 
@@ -99,7 +99,7 @@ router.delete('/:id', function(req, res, next) {
         data: feedback
       });
     } else {
-      var message = 'Project not found';
+      var message = 'Article not found';
       res.status(404).send({
         error: {
           message: message
