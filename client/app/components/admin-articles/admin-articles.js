@@ -18,6 +18,11 @@ var AdminArticlesController = function AdminArticlesController(articlesRestServi
     .error(function error() {});
 };
 
+/**
+ * Remove an article
+ *
+ * @param {String} id Article ID
+ */
 AdminArticlesController.prototype.remove = function remove(id) {
   this.articlesRestService.remove({ id: id })
     .success(function success() {

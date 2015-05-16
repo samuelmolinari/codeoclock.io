@@ -24,6 +24,10 @@ var AdminProjectsEditController = function AdminProjectsEditController($router, 
   }
 };
 
+
+/**
+ * Create a new project
+ */
 AdminProjectsEditController.prototype.create = function create() {
   this.projectsRestService.create(this.project)
     .success(function success(response) {
@@ -33,6 +37,9 @@ AdminProjectsEditController.prototype.create = function create() {
     }.bind(this));
 };
 
+/**
+ * Update an existing project
+ */ 
 AdminProjectsEditController.prototype.update = function update() {
   this.projectsRestService.update({ id: this.project._id, data: this.project })
     .success(function success() {})

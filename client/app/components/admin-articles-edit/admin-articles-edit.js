@@ -24,6 +24,9 @@ var AdminArticlesEditController = function AdminArticlesEditController($router, 
   }
 };
 
+/**
+ * Create a new article
+ */
 AdminArticlesEditController.prototype.create = function create() {
   this.articlesRestService.create(this.article)
     .success(function success(response) {
@@ -33,6 +36,9 @@ AdminArticlesEditController.prototype.create = function create() {
     }.bind(this));
 };
 
+/**
+ * Update an existing article
+ */
 AdminArticlesEditController.prototype.update = function update() {
   this.articlesRestService.update({ id: this.article._id, data: this.article })
     .success(function success() {})

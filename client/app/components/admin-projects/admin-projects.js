@@ -18,6 +18,11 @@ var AdminProjectsController = function AdminProjectsController(projectsRestServi
     .error(function error() {});
 };
 
+/**
+ * Remove a project
+ *
+ * @param {String} id Project ID
+ */
 AdminProjectsController.prototype.remove = function remove(id) {
   this.projectsRestService.remove({ id: id })
     .success(function success() {
