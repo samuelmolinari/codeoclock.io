@@ -38,6 +38,12 @@
     </div>
 
     <div class="form__group">
+      <input type="text" class="form__text" name="articleMetaThemeColor" id="articleMetaThemeColor"
+             placeholder="Meta Theme Color"
+             ng-model="adminArticlesEdit.article.meta.themeColor">
+    </div>
+
+    <div class="form__group">
       <label for="articleLive" class="form__label">
         <input type="checkbox" class="form__checkbox" name="articleLive" id="articleLive"
                ng-model="adminArticlesEdit.article.live">
@@ -50,11 +56,5 @@
     </div>
   </form>
 
-  <article class="article--preview">
-    <div class="article__cover" data-article-cover cover-src="adminArticlesEdit.article.coverUrl"></div>
-    <div class="article__container">
-      <h1 class="article__title" ng-bind="adminArticlesEdit.article.title"></h1>
-      <div data-article-content content="adminArticlesEdit.article.content"></div>
-    </div>
-  </article>
+  <article article="adminArticlesEdit.article"><article>
 </div>

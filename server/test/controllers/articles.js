@@ -88,7 +88,12 @@ describe('Articles Controller', function() {
       var data = {
         title: 'John Doe Article',
         content: 'Hello World!',
-        live: true
+        live: true,
+        meta: {
+          title: 'metatitle',
+          description: 'metadescription',
+          themeColor: 'themecolor'
+        }
       };
 
       request(app)
@@ -98,11 +103,19 @@ describe('Articles Controller', function() {
           Article.findOne({}).exec()
             .then(function(article) {
               expect(article._id.toString()).to.eql(res.body.data._id);
+              var meta = data.meta;
+              delete data.meta;
+
+              for(var metaKey in meta) {
+                expect(meta[metaKey]).to.eql(article.meta[metaKey]);
+              }
+
               for(var key in data) {
-                expect(article[key]).to.eql(res.body.data[key]);
+                expect(article[key]).to.equal(res.body.data[key]);
               }
               done();
-            });
+            })
+            .then(null, function(err) {console.log(err);});
         });
     });
   });

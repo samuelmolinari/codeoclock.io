@@ -7,7 +7,7 @@
       <th class="table__th">Title</th>
       <th class="table__th"></th>
     </tr>
-    <tr class="table__tr" ng-repeat="article in adminArticles.list track by project._id">
+    <tr class="table__tr" ng-repeat="article in adminArticles.list track by $index">
       <td class="table__td--checkbox"><input type="checkbox" class="form__checkbox" disabled ng-model="article.live"></td>
       <td class="table__td--dominant"><a ng-link="adminArticlesEdit({ id: article._id })" ng-bind="::article.title"></a></td>
       <td class="table__td--right"><button ng-click="adminArticles.remove(article._id)" class="button--danger fa fa-remove"></button></td>

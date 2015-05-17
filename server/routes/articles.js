@@ -21,7 +21,7 @@ router.get('/', function(req, res, next) {
 });
 
 /**
- * Get aarticle
+ * Get article
  */
 router.get('/:id', function(req, res, next) {
   var promise = articlesController.get({
@@ -46,7 +46,7 @@ router.get('/:id', function(req, res, next) {
 });
 
 /**
- * Update aarticle
+ * Update an article
  */
 router.put('/:id', function(req, res, next) {
   var promise = articlesController.update({
@@ -72,7 +72,7 @@ router.put('/:id', function(req, res, next) {
 });
 
 /**
- * Create aarticle
+ * Create an article
  */
 router.post('/', function(req, res, next) {
   var promise = articlesController.create(req.body);
@@ -80,13 +80,13 @@ router.post('/', function(req, res, next) {
   promise.then(function onFulfill(article) {
     res.status(201);
     res.send({
-      data:article
+      data: article
     });
   }).then(null, next);
 });
 
 /**
- * Remove a article
+ * Remove an article
  */
 router.delete('/:id', function(req, res, next) {
   var promise = articlesController.remove({

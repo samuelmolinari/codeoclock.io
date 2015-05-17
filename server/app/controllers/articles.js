@@ -57,11 +57,11 @@ ArticlesController.prototype.get = function get(args) {
  */
 ArticlesController.prototype.update = function update(args) {
   delete args.data._id;
-  delete args.data._v;
-  delete args.createdAt;
-  delete args.updatedAt;
+  delete args.data.__v;
+  delete args.data.createdAt;
+  delete args.data.updatedAt;
 
-  return Article.update({ _id: args.id }, { $set: args.data }).exec();
+  return Article.update({ _id: args.id }, args.data).exec();
 };
 
 /**
