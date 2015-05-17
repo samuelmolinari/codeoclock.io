@@ -1,9 +1,39 @@
 .article {
+  font-size: 1.2em;
+  line-height: 1.6em;
+  font-weight: 300;
+  background-color: white;
+  padding: 0;
+
+  .article__title {
+    font-size: 2em;
+    font-weight: bold;
+    margin: 0;
+    padding: 60px 0 20px 0;
+    line-height: 1em;
+  }
+
+  .article__cover {
+    height: 250px;
+    background-size: cover;
+    background-position: top center;
+  }
+
+  .article__container {
+    padding: 0 20px 20px 20px;
+  }
+
+  p {
+    margin: 40px 0;
+  }
+
   code {
     margin: 10px 0;
-    background-color: white;
-    border: 3px solid #dfdfdf;
+    background-color: #fdfdfd;
+    border-bottom: 1px solid #dfdfdf;
     display: block;
+    line-height: 1.3em;
+    font-size: 0.8em;
 
     pre {
       padding: 20px;

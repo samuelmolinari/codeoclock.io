@@ -26,6 +26,10 @@
       display: inline-block;
     }
 
+    .header__title {
+      padding: $sm-side-padding;
+    }
+
     /* Header Link */
     .header__link {
       float: none;

@@ -2,4 +2,8 @@
   .main {
     padding-top: $sm-header-height;
   }
+
+  .container {
+    padding: 0 $sm-side-padding;
+  }
 }

@@ -1,0 +1,11 @@
+@media (min-width: $screen-sm-min) {
+  .article {
+    .article__container {
+      padding: 0 40px 40px 40px;
+    }
+
+    .article__cover {
+      height: 400px;
+    }
+  }
+}

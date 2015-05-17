@@ -9,7 +9,7 @@
     </div>
 
     <div class="form__group">
-      <textarea class="form__textarea" name="articleContent"
+      <textarea class="form__textarea--large" name="articleContent"
                 id="articleContent" placeholder="Article Content"
                 ng-model="adminArticlesEdit.article.content"></textarea>
 
@@ -17,7 +17,24 @@
 
     <div class="form__group">
       <input type="url" class="form__text" name="articleCoverUrl" id="articleCoverUrl"
-             placeholder="Article Url" ng-model="adminArticlesEdit.coverUrl">
+             placeholder="Cover URL" ng-model="adminArticlesEdit.article.coverUrl">
+    </div>
+
+    <h2>Meta Data</h2>
+
+    <div class="form__group">
+      <input type="text" class="form__text" name="articleMetaTitle" id="articleMetaTitle"
+             required
+             placeholder="Meta Title"
+             ng-model="adminArticlesEdit.article.meta.title">
+    </div>
+
+    <div class="form__group">
+      <textarea class="form__textarea" name="articleMetaDescription"
+                required
+                id="articleMetaDescription" placeholder="Meta Description"
+                ng-model="adminArticlesEdit.article.meta.description"></textarea>
+
     </div>
 
     <div class="form__group">
@@ -33,5 +50,11 @@
     </div>
   </form>
 
-  <article class="article--preview" article-content content="adminArticlesEdit.article.content"></article>
+  <article class="article--preview">
+    <div class="article__cover" data-article-cover cover-src="adminArticlesEdit.article.coverUrl"></div>
+    <div class="article__container">
+      <h1 class="article__title" ng-bind="adminArticlesEdit.article.title"></h1>
+      <div data-article-content content="adminArticlesEdit.article.content"></div>
+    </div>
+  </article>
 </div>

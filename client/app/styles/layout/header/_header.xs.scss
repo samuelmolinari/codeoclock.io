@@ -23,7 +23,7 @@
     display: inline-block;
     vertical-align: middle;
     color: $color-primary;
-    padding: $side-padding;
+    padding: $xs-side-padding;
   }
 
   /* Header Menu Toggle Button */
@@ -36,8 +36,8 @@
     color: $color-header-button-inactive;
     vertical-align: middle;
     position: absolute;
-    right: 20px;
-    top: 20px;
+    right: 10px;
+    top: 10px;
     transition: border-color 300ms, color 300ms, background-color 300ms;
     line-height: 36px;
     text-decoration: none;
